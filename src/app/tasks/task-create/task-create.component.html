@@ -1,0 +1,52 @@
+<h3 class="ui header">Create new project</h3>
+
+<form #f="ngForm" *ngIf="!success">
+  <div class="ui form">
+
+    <div class="inline field">
+      <label>Type</label>
+      <div class="ui green inverted compact menu">
+        <label class="item" [class.active]="type==1">
+          <input type="radio" name="type" [value]="1" hidden="hidden" [(ngModel)]="type">
+            <i class="icon cube"></i> REST Service
+        </label>
+        <label class="item" [class.active]="type==2">
+          <input type="radio" name="type" [value]="2" hidden="hidden" [(ngModel)]="type">
+            <i class="icon calendar"></i> Cron task
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Readable name</label>
+      <input type="text" placeholder="My service" name="name" ngModel>
+    </div>
+
+    <div class="field">
+      <label>Unique code</label>
+      <input type="text" placeholder="my-service" name="code" ngModel>
+    </div>
+
+    <div class="field">
+      <div class="ui checkbox">
+        <input type="checkbox" name="archetype" [value]="1" id="archetype">
+        <label for="archetype">Generate project code</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Description</label>
+      <textarea name="desc" ngModel></textarea>
+    </div>
+
+    <button class="ui primary button" (click)="success=true">Create</button>
+
+  </div>
+</form>
+
+<div class="ui success message" *ngIf="success">
+  <h4>Project "My Service" has been successfully created</h4>
+  <p>Source code: <a href="http://gitlab.dev/soa/my-service">http://gitlab.dev/soa/my-service</a></p>
+  <p>Git repository: http://gitlab.dev/soa/my-service.git</p>
+  <p>Project page: <a routerLink="/projects/my-service">My service</a></p>
+</div>

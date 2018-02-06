@@ -15,6 +15,7 @@ import {TaskCreateComponent} from './tasks/task-create/task-create.component';
 import {TaskDeployComponent} from './tasks/task-deploy/task-deploy.component';
 import {TaskExecuteComponent} from './tasks/task-execute/task-execute.component';
 import {TaskProvisionComponent} from './tasks/task-provision/task-provision.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {TaskProvisionComponent} from './tasks/task-provision/task-provision.comp
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
